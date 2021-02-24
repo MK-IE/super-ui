@@ -1,0 +1,32 @@
+:root {
+    font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+select {
+    cursor: pointer;
+}
+
+.space {
+    width: 100vw;
+    height: 100vh;
+}
+
+.center-xy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orange {
+    background-color: #ea7f61;
+}

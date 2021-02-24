@@ -1,0 +1,99 @@
+#form {
+    display: flex;
+    width: 992px;
+    height: 558px;
+    border-radius: 2.5rem;
+    background-color: #fefefe;
+    box-shadow: 0px 10px 10px 5px rgba(45, 52, 54, 0.1);
+}
+
+#sign-up {
+    flex: 1;
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 7rem;
+    flex-direction: column;
+}
+
+#get-started {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#company-name {
+    margin-top: 1rem;
+    font-weight: bolder;
+}
+
+#get-started-title {
+    font-size: 2rem;
+    margin-top: 3rem;
+    font-weight: bolder;
+}
+
+#have-account {
+    margin-top: 1rem;
+    font-weight: 400;
+    color: #9b9899;
+}
+
+#have-account a {
+    color: #22201e;
+}
+
+.sign-up-label {
+    color: #9b9899;
+    pointer-events: none;
+    transform: translateY(-30px);
+    transition: font-size ease-out 250ms, transform ease-out 250ms;
+}
+
+.sign-up-input {
+    border: none;
+    appearance: none;
+    margin-top: 2rem;
+    color: #22201e;
+    padding-bottom: 0.5rem;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(178, 190, 195, 0.4);
+}
+
+.sign-up-button {
+    width: 100%;
+    border: none;
+    height: 3rem;
+    color: white;
+    cursor: pointer;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    background-color: #22201e;
+}
+
+.sign-up-input:focus {
+    outline: none;
+    transition: border-bottom ease-in 250ms;
+    border-bottom: 2px solid rgba(34, 32, 30, 0.6);
+}
+
+.sign-up-input:focus + .sign-up-label {
+    font-size: 0.8rem;
+    transform: translateY(-48px);
+    transition: font-size ease-in 250ms, transform ease-in 250ms;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.selected {
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0px 0px 30px 10px rgba(220, 221, 225, 0.5);
+}
