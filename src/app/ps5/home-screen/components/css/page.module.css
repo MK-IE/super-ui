@@ -1,0 +1,41 @@
+.GameBox {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background-color: black;
+}
+
+.GradientBorder {
+  color: red;
+  width: 15rem;
+  height: 15rem;
+  padding: 0.25rem;
+  border-radius: 3rem;
+  margin-left: 100rem;
+  background-color: black;
+  /*#7c86a3 */
+  background: linear-gradient(to left top, red, #797e98);
+  animation: shine 5s infinite alternate ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    background: linear-gradient(to right top, #797e98, red);
+  }
+
+  25% {
+    background: linear-gradient(to right, red, #797e98);
+  }
+
+  50% {
+    background: linear-gradient(to right bottom, red, #797e98);
+  }
+
+  75% {
+    background: linear-gradient(to left bottom, red, #797e98);
+  }
+
+  100% {
+    background: linear-gradient(to left, red, #797e98);
+  }
+}
