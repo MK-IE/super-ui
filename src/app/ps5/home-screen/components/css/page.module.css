@@ -1,8 +1,26 @@
+/* :root {
+  --borderWidth: 10px;
+  --borderRadius: 10px;
+  --width: 400px;
+  --height: 225px;
+  --hue: 300;
+  --hueOffset: 120;
+  --level: 50%;
+  --brightness: 75%;
+  --gradient: radial-gradient(
+    circle,
+    hsl(var(--hue), 100%, var(--brightness)) 0%,
+    hsl(calc(var(--hue) + var(--hueOffset)), 100%, var(--level)) 100%
+  );
+  --duration: 5s;
+  --fraction: calc(var(--width) / (var(--width) + var(--height)));
+} */
+
 .GameBox {
   width: inherit;
   height: inherit;
   border-radius: inherit;
-  background-color: black;
+  background-color: blue;
 }
 
 .GradientBorder {
@@ -12,30 +30,95 @@
   padding: 0.25rem;
   border-radius: 3rem;
   margin-left: 100rem;
-  background-color: black;
-  /*#7c86a3 */
-  background: linear-gradient(to left top, red, #797e98);
-  animation: shine 5s infinite alternate ease-in-out;
+  /* mask: linear-gradient(red, #797e98) top, linear-gradient(red, #797e98) bottom,
+    linear-gradient(red, #797e98) left, linear-gradient(red, #797e98) right;
+  #7c86a3
+  mask: linear-gradient(to left top, red, #797e98);
+  mask-size: 100% 10rem, 100% 10rem, 10rem 100%, 10rem 100%;
+  mask-repeat: no-repeat; */
+  /* radial-gradient: (
+    circle,
+    hsl(320, 100%, 10%) 0%,
+    hsl(calc(300 + 120), 100%, 50%) 100%
+  ); */
 }
 
-@keyframes shine {
+.GradientBorder::after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * 10rem);
+  left: calc(-1 * 10rem);
+  height: calc(100% + 10rem * 2);
+  width: calc(100% + 10rem * 2);
+  background: var(10rem);
+  border-radius: calc(2 * 10rem);
+  animation: animated-gradient 5s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+#box {
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--borderRadius);
+  /* -webkit-mask: -webkit-gradient( linear, left top, left bottom, from(#fff), to(#fff) ) top, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) bottom, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) left, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) right; */
+  /* -webkit-mask: linear-gradient(#fff, #fff) top, linear-gradient(#fff, #fff) bottom, linear-gradient(#fff, #fff) left, linear-gradient(#fff, #fff) right; */
+  /* mask: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) top, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) bottom, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) left, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) right; */
+  mask: linear-gradient(#fff, #fff) top, linear-gradient(#fff, #fff) bottom,
+    linear-gradient(#fff, #fff) left, linear-gradient(#fff, #fff) right;
+  /* -webkit-mask-size: 100% var(--borderWidth), 100% var(--borderWidth),
+    var(--borderWidth) 100%, var(--borderWidth) 100%; */
+  mask-size: 100% var(--borderWidth), 100% var(--borderWidth),
+    var(--borderWidth) 100%, var(--borderWidth) 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  display: none;
+}
+
+.gradient-border {
+  background: transparent;
+  position: relative;
+}
+
+.gradient-border::after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: var(--gradient);
+  border-radius: calc(2 * var(--borderRadius));
+  -webkit-animation: animatedgradient var(--duration) ease-in-out infinite;
+  animation: animatedgradient var(--duration) ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes animated-gradient {
   0% {
-    background: linear-gradient(to right top, #797e98, red);
+    background-position: 0% 0%;
   }
-
-  25% {
-    background: linear-gradient(to right, red, #797e98);
-  }
-
   50% {
-    background: linear-gradient(to right bottom, red, #797e98);
+    background-position: 100% 100%;
   }
-
-  75% {
-    background: linear-gradient(to left bottom, red, #797e98);
-  }
-
   100% {
-    background: linear-gradient(to left, red, #797e98);
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes aniamted-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }
